@@ -39,6 +39,17 @@ public class MineSweeper {
 	
 	public static int[][] makeBoard(int height, int width) {
 	    // TO BE IMPLEMENTED, and the line below should of course be replaced
+	    int[][] board = new int[height][width];
+
+	    for(int i = 0; i < board.length; i++)
+	    {
+	    	for (int j = 0 ; j < board[i].length; j++) {
+	    		board[i][j] = generatorBoard();
+
+	    	}
+	    }
+
+
 	    return null;
 	}
 	
@@ -49,6 +60,15 @@ public class MineSweeper {
 	public static boolean clicked(int x, int y, int[][] board, boolean[][] open) {
 	    // TO BE IMPLEMENTED, and the line below should of course be replaced
 	    return true;
+	}
+
+	//10% chance of returning 9, 90% -> 0 
+	public static int generatorBoard(){
+		if (Math.random() > 0.1){
+			return 0 ;
+		}
+		else return 9 ;
+
 	}
 
 }
