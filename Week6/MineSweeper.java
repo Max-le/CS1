@@ -56,8 +56,12 @@ public class MineSweeper {
 	}
 	
 	public static void computeHints(int[][] array) {
+
+		System.out.println("array length: "+array.length);
 	    for (int i = 0 ; i < array.length; i++){
-	    	for (int j = 0 ; i < array[i].length; j++){
+	    	for (int j = 0 ; j < array[i].length; j++){
+			System.out.println("i,j : "+i+","+j);
+
 	    		array[i][j]= bombsAround(array, i, j);
 	    		
 	    		
@@ -112,28 +116,31 @@ public class MineSweeper {
 	**/
 	public static int bombsAround(int[][] board, int x, int y){
 		int bombs = 0 ; 
+		System.out.println("initial values : " +"\n"+ x+" "+y);
 
 		//search through all adjacent spaces ( x-1 to x+1, y-1 to x+1)
-		for (int i = -1; i < 2; i++){
+		for (int i = -1; i<2; i++){
 
-			for (int j=-1; j<2; j++){
+			for (int j= -1; j<2; j++){
 				//Avoid outOfBound Exception
-				if ( (x+i >= 0 && y+i >= 0) && (board[x+i][y+j] == 9)){
-					//it's a bomb ! 
-					bombs++;
+				System.out.println("OUT IF : "+x+""+i+" "+y+""+j);
 
+				if  ((x+i) >= 0 && (y+j) >= 0){
+					System.out.println("IN IF : "+x+""+i+" "+y+""+j);
+
+
+					// if (board[x+i][y+j] == 9){
+					// //it's a bomb ! 
+					// bombs++;
+					// } 
 				} 
-				else {
-					//nothing to report, no bomb
-				}
+
 			}
 		}
 
-
-
 		return bombs; 
 
-	}
+	}//End bombsAround method
 
 }
 
