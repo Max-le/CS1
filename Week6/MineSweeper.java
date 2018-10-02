@@ -58,7 +58,13 @@ public class MineSweeper {
 	}
 	
 	public static void computeHints(int[][] array) {
-	    // TO BE IMPLEMENTED
+	    for (int i = 0 ; i < array.length; i++){
+	    	for (int j = 0 ; i < array[i].length; j++){
+	    		//count number of bombs around
+	    		array[i][j] = 0 ; 
+	    		//adjacent spaces : 
+	    	}
+	    }
 	}
 	
 	public static boolean clicked(int x, int y, int[][] board, boolean[][] open) {
@@ -80,7 +86,7 @@ public class MineSweeper {
 	}
 
 
-	/** Counts the number of bombs 
+	/** Counts the number of bombs in the whole board
 	@return bombs The number of bombs 
 
 	**/
