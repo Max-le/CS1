@@ -125,14 +125,14 @@ public class MineSweeper {
 				//Avoid outOfBound Exception
 				System.out.println("OUT IF : "+x+""+i+" "+y+""+j);
 
-				if  ((x+i) >= 0 && (y+j) >= 0){
+				if  ((x+i) >= 0 && (y+j) >= 0 && ((x+i) < 10 && (j+y) < 10 )){
 					System.out.println("IN IF : "+x+""+i+" "+y+""+j);
 
 
-					// if (board[x+i][y+j] == 9){
-					// //it's a bomb ! 
-					// bombs++;
-					// } 
+					if (board[x+i][y+j] == 9){
+					//it's a bomb ! 
+					bombs++;
+					} 
 				} 
 
 			}
