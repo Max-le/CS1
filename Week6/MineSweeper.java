@@ -10,17 +10,16 @@ public class MineSweeper {
 		int[][] board = makeBoard(HEIGHT,WIDTH);
 		boolean[][] open = new boolean[HEIGHT][WIDTH];
 
-		for (int i=0; i<board.length; i++)
-			for (int j=0; j<board[0].length; j++)
-				open[i][j] = true;
+		// for (int i=0; i<board.length; i++)
+		// 	for (int j=0; j<board[0].length; j++)
+		// 		open[i][j] = true;
 		 
 		
-		computeHints(board);
-		for (int i=0; i<board.length; i++)
-			for (int j=0; j<board[0].length; j++)
-				open[i][j] = true;
+		// computeHints(board);
+		// for (int i=0; i<board.length; i++)
+		// 	for (int j=0; j<board[0].length; j++)
+		// 		open[i][j] = true;
 
-		/* To run the full game after finishing clicked, recomment the code above and uncomment this code: 
 		computeHints(board);
 		
 		boolean alive = true;
@@ -29,13 +28,11 @@ public class MineSweeper {
 			int[] move = window.getMove();
 			alive = clicked(move[0],move[1],board,open);
 		}
-		 */
 
 		window.printBoard(board,open);
 	}
 	
 	public static int[][] makeBoard(int height, int width) {
-	    // TO BE IMPLEMENTED, and the line below should of course be replaced
 	    int[][] board = new int[height][width];
 
 	    for(int i = 0; i < board.length; i++)
@@ -70,7 +67,7 @@ public class MineSweeper {
 	}
 	
 	public static boolean clicked(int x, int y, int[][] board, boolean[][] open) {
-	    // TO BE IMPLEMENTED, and the line below should of course be replaced
+
 	    return true;
 	}
 
