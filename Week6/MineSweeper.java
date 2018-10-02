@@ -61,7 +61,7 @@ public class MineSweeper {
 	    for (int i = 0 ; i < array.length; i++){
 	    	for (int j = 0 ; i < array[i].length; j++){
 	    		//count number of bombs around
-	    		array[i][j] = 0 ; 
+	    		
 	    		//adjacent spaces : 
 	    	}
 	    }
@@ -86,7 +86,8 @@ public class MineSweeper {
 	}
 
 
-	/** Counts the number of bombs in the whole board
+	/** Counts the number of bombs in the **whole board**
+	@param board the board
 	@return bombs The number of bombs 
 
 	**/
@@ -105,6 +106,36 @@ public class MineSweeper {
 	    }
 
 		return bombs; 
+	}
+	/** Counts the number of bombs around a **particular position**
+	@param x A position in the board (coordonates x,y)
+	@param y A position in the board (coordonates x,y)
+	@param board the board itself
+	**/
+	public static int bombsAround(int[][] board, int x, int y){
+		int bombs = 0 ; 
+
+
+		for (int i = -1; i < 2; i++){
+
+			for (int j=-1; j<2; j++){
+				if (board[x+i][y+j] == 9){
+					//it's a bomb ! 
+					bombs++;
+
+				} 
+				else {
+					//nothing to report, no bomb
+				}
+
+			}
+
+		}
+
+
+
+		return bombs; 
+
 	}
 
 }
