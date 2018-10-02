@@ -75,7 +75,7 @@ public class MineSweeper {
 			return true;
 		}
 		else if (board[x][y] == 9){
-			//GAME OVER !
+			System.out.println("GAME OVER !");
 			return false; 
 		}
 		else{
