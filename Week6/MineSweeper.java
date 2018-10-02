@@ -10,11 +10,10 @@ public class MineSweeper {
 		int[][] board = makeBoard(HEIGHT,WIDTH);
 		boolean[][] open = new boolean[HEIGHT][WIDTH];
 
-		/* To test only the makeBoard method, uncomment the following code:
 		for (int i=0; i<board.length; i++)
 			for (int j=0; j<board[0].length; j++)
 				open[i][j] = true;
-		 */
+		 
 		
 		/* To test makeBoard and computeHints, recomment the code above and uncomment the following code:
 		computeHints(board);
