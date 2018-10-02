@@ -58,8 +58,10 @@ public class MineSweeper {
 	    for (int i = 0 ; i < array.length; i++){
 	    	for (int j = 0 ; j < array[i].length; j++){
 			System.out.println("i,j : "+i+","+j);
-
+			
+				if (array[i][j] != 9){
 	    		array[i][j]= bombsAround(array, i, j);
+	    	}
 	    		
 	    		
 	    	}
@@ -67,6 +69,19 @@ public class MineSweeper {
 	}
 	
 	public static boolean clicked(int x, int y, int[][] board, boolean[][] open) {
+
+		if (open[x][y]){
+			//square was already opened
+			return true;
+		}
+		else if (board[x][y] == 9){
+			//GAME OVER !
+			return false; 
+		}
+		else{
+			open[x][y]=true;
+		} 
+
 
 	    return true;
 	}
@@ -120,10 +135,10 @@ public class MineSweeper {
 
 			for (int j= -1; j<2; j++){
 				//Avoid outOfBound Exception
-				System.out.println("OUT IF : "+x+""+i+" "+y+""+j);
+				//System.out.println("OUT IF : "+x+""+i+" "+y+""+j);
 
 				if  ((x+i) >= 0 && (y+j) >= 0 && ((x+i) < 10 && (j+y) < 10 )){
-					System.out.println("IN IF : "+x+""+i+" "+y+""+j);
+					//System.out.println("IN IF : "+x+""+i+" "+y+""+j);
 
 
 					if (board[x+i][y+j] == 9){
