@@ -39,14 +39,13 @@ public class MineSweeper {
 	public static int[][] makeBoard(int height, int width) {
 	    // TO BE IMPLEMENTED, and the line below should of course be replaced
 	    int[][] board = new int[height][width];
-	    int n_bombs = 0;
 
 	    for(int i = 0; i < board.length; i++)
 	    {
 	    	for (int j = 0 ; j < board[i].length; j++) {
 
-	    		if (n_bombs < 10){ 
-	    		board[i][j] = fillBoard(0.2);
+	    		if (countBombs(board) < 10){ 
+	    		board[i][j] = fillBoard(0.1);
 	    	}
 	    	// Do not add bomb if there's already ten bombs
 	    	else board[i][j] = 0 ; 
