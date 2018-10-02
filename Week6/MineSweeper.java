@@ -15,12 +15,10 @@ public class MineSweeper {
 				open[i][j] = true;
 		 
 		
-		/* To test makeBoard and computeHints, recomment the code above and uncomment the following code:
 		computeHints(board);
 		for (int i=0; i<board.length; i++)
 			for (int j=0; j<board[0].length; j++)
 				open[i][j] = true;
-		 */
 
 		/* To run the full game after finishing clicked, recomment the code above and uncomment this code: 
 		computeHints(board);
@@ -60,9 +58,9 @@ public class MineSweeper {
 	public static void computeHints(int[][] array) {
 	    for (int i = 0 ; i < array.length; i++){
 	    	for (int j = 0 ; i < array[i].length; j++){
-	    		//count number of bombs around
+	    		array[i][j]= bombsAround(array, i, j);
 	    		
-	    		//adjacent spaces : 
+	    		
 	    	}
 	    }
 	}
@@ -115,11 +113,12 @@ public class MineSweeper {
 	public static int bombsAround(int[][] board, int x, int y){
 		int bombs = 0 ; 
 
-
+		//search through all adjacent spaces ( x-1 to x+1, y-1 to x+1)
 		for (int i = -1; i < 2; i++){
 
 			for (int j=-1; j<2; j++){
-				if (board[x+i][y+j] == 9){
+				//Avoid outOfBound Exception
+				if ( (x+i >= 0 && y+i >= 0) && (board[x+i][y+j] == 9)){
 					//it's a bomb ! 
 					bombs++;
 
@@ -127,9 +126,7 @@ public class MineSweeper {
 				else {
 					//nothing to report, no bomb
 				}
-
 			}
-
 		}
 
 
