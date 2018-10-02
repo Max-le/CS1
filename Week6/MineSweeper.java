@@ -80,4 +80,28 @@ public class MineSweeper {
 
 	}
 
+
+	/** Counts the number of bombs 
+	@return bombs The number of bombs 
+
+	**/
+	public static int countBombs(int[][]board){
+		int bombs = 0  ; 
+
+		for(int i = 0; i < board.length; i++)
+	    {
+	    	for (int j = 0 ; j < board[i].length; j++) {
+
+	    		
+	    		if (board[i][j] == 9) {
+	    			bombs++;
+	    		}
+	    	}
+	    }
+
+		return bombs; 
+	}
+
 }
+
+
