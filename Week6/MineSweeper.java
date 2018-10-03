@@ -58,7 +58,7 @@ public class MineSweeper {
 	    for (int i = 0 ; i < array.length; i++){
 	    	for (int j = 0 ; j < array[i].length; j++){
 			System.out.println("i,j : "+i+","+j);
-			
+
 				if (array[i][j] != 9){
 	    		array[i][j]= bombsAround(array, i, j);
 	    	}
@@ -80,6 +80,7 @@ public class MineSweeper {
 		}
 		else{
 			open[x][y]=true;
+			openAround(board, open, x,y);
 		} 
 
 
@@ -153,6 +154,47 @@ public class MineSweeper {
 		return bombs; 
 
 	}//End bombsAround method
+
+		/**Opens ( reveals) the square around if there's no bomb
+		@param board board with numerical values
+		@param open board containing the true/false values ( opened/closed)
+		@param x,y position clicked 
+
+		**/
+		public static void openAround(int[][] board, boolean[][] open, int x, int y){
+
+		System.out.println("-openAround initial values : " +"\n"+ x+" "+y);
+
+		//search through all adjacent spaces ( x-1 to x+1, y-1 to x+1)
+		for (int i = -1; i<2; i++){
+
+			for (int j= -1; j<2; j++){
+				//System.out.println("OUT IF : "+x+""+i+" "+y+""+j);
+
+
+				//Avoid outOfBound Exception
+				if  ((x+i) >= 0 && (y+j) >= 0 && ((x+i) < 10 && (j+y) < 10 )){
+					//System.out.println("IN IF : "+x+""+i+" "+y+""+j);
+
+
+					if (board[x+i][y+j] == 9){
+					//it's a bomb ! (Don't open it)
+					
+					} 
+					else{
+						//open the square
+					System.out.println("Open : "+x+""+i+" "+y+""+j);
+						open[x+i][y+j]=true; 
+					}
+				} 
+
+			}
+		}
+
+		return; 
+
+	}//End bombsAround method
+
 
 }
 
