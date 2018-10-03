@@ -7,6 +7,9 @@ public class Hanoi{
 		// 0 = no disk, 1 = smallest disk,..., size_tower= largest disk
 
 
+	public static 
+
+
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the size of the Tower of Hanoï.");
@@ -15,9 +18,11 @@ public class Hanoi{
 		int[] stackA = new int[size_tower];
 		int[] stackB = new int[size_tower];
 		int[] stackC = new int[size_tower];
+
 		stackA = fill(stackA,0);
 		stackB = fillZeros(stackB,0);
 		stackC = fillZeros(stackC,0);
+
 		System.out.println(Arrays.toString(stackA));
 		System.out.println(Arrays.toString(stackB));
 		System.out.println(Arrays.toString(stackC));
