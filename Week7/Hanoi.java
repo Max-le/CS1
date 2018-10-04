@@ -5,8 +5,49 @@ public class Hanoi{
 
 
 		// 0 = no disk, 1 = smallest disk,..., size_tower= largest disk
+		public static void moveTower(int n, String origin, String goal, String intermediate){
+
+			if (n == 1) {
+				System.out.println("Move disk "+n+ "  "+origin+" --> "+goal );
+			}
+			else{
+				moveTower(n-1, origin, intermediate, goal);
+				System.out.println("Move disk  "+n+ "  "+origin+" -> "+goal );
+				moveTower(n-1, intermediate, goal, origin);
 
 
+			}
+		}
+		//moves the disk between 2 arrays ( stacks ).
+		public static void moveDisk(int disk, int[] stack_origin, int[] stack_goal){
+			// stack_origin[disk-1] = disk 
+			// stack_goal[count] = future position of fisk
+			//search free position in array 
+			int size_tower = stack_goal.length;
+
+			int count = size_tower-1;
+			boolean diskmoved = false; 
+		while (diskmoved == false) { 
+			if (stack_goal[count] == 0) {
+
+				//move disk
+				stack_goal[size_tower-1] = stack_origin[disk-1];
+
+				stack_origin[disk-1]=0;
+				System.out.println("Disk moved ! ");
+				diskmoved = true ; 
+
+			}
+			else{
+				count--;
+				System.out.println("testing position "+ count);
+			}
+		}
+
+
+
+
+		}
 
 
 	public static void main(String[] args){
@@ -25,6 +66,10 @@ public class Hanoi{
 		System.out.println(Arrays.toString(stackA));
 		System.out.println(Arrays.toString(stackB));
 		System.out.println(Arrays.toString(stackC));
+		moveTower(size_tower,"A","C","B");
+		moveDisk(1, stackA, stackB);
+
+
 
 
 
@@ -36,6 +81,8 @@ public class Hanoi{
 
 
 	}
+
+
 
 	/** Fills an array with zeros ( recursively ).
 
@@ -85,13 +132,8 @@ public class Hanoi{
 
 	 		return fill(newArray, index + 1);
 
-
-
 	 	}
 
-
-
 	 }	
-
 
 	}
