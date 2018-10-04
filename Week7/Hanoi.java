@@ -149,5 +149,10 @@ public class Hanoi{
 	 	}
 
 	 }	
+	 public static void printArrays(int[]a, int[] b, int[] c){
+	 	System.out.println(Arrays.toString(a));
+		System.out.println(Arrays.toString(b));
+		System.out.println(Arrays.toString(c));
+		}	
 
 	}
