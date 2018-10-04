@@ -1,8 +1,8 @@
 public class HouseOnSale {
 	
-	private ...;
-	private ...;
-	private ...;
+	private double price; 
+	private int bedroom;
+	private double sqmeter; 
 	
 	private static ...;
 	private static ...;
