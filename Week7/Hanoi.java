@@ -7,7 +7,6 @@ public class Hanoi{
 		// 0 = no disk, 1 = smallest disk,..., size_tower= largest disk
 
 
-	public static 
 
 
 	public static void main(String[] args){
