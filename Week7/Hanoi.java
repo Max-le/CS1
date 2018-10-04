@@ -5,14 +5,19 @@ public class Hanoi{
 
 
 		// 0 = no disk, 1 = smallest disk,..., size_tower= largest disk
-		public static void moveTower(int n, String origin, String goal, String intermediate){
+		public static void moveTower(int n, int[] origin, int[] goal, int[] intermediate){
 
 			if (n == 1) {
-				System.out.println("Move disk "+n+ "  "+origin+" --> "+goal );
+				//System.out.println("Move disk "+n+ "  "+origin+" --> "+goal );
+				moveDisk(n,origin,goal);
+				printArrays(origin,intermediate, goal);
 			}
 			else{
 				moveTower(n-1, origin, intermediate, goal);
-				System.out.println("Move disk  "+n+ "  "+origin+" -> "+goal );
+				//System.out.println("Move disk  "+n+ "  "+origin+" -> "+goal );
+				moveDisk(n,origin,goal);
+				printArrays(origin,intermediate, goal);
+
 				moveTower(n-1, intermediate, goal, origin);
 
 
@@ -64,24 +69,21 @@ public class Hanoi{
 		stackA = fill(stackA,0);
 		stackB = fillZeros(stackB,0);
 		stackC = fillZeros(stackC,0);
+		printArrays(stackA,stackB, stackC);
 
-		System.out.println(Arrays.toString(stackA));
-		System.out.println(Arrays.toString(stackB));
-		System.out.println(Arrays.toString(stackC));
-		moveTower(size_tower,"A","C","B");
+
+		moveTower(size_tower,stackA,stackC,stackB);
 
 
 
 		//testing
-		for (int i = 1; i<size_tower; i++){
+		// for (int i = 1; i<size_tower+1; i++){
 
-			moveDisk(i, stackA, stackB);
-		}
+		// 	moveDisk(i, stackA, stackB);
+		// }
 
 
-		System.out.println(Arrays.toString(stackA));
-		System.out.println(Arrays.toString(stackB));
-		System.out.println(Arrays.toString(stackC));
+
 
 
 
@@ -148,7 +150,7 @@ public class Hanoi{
 
 	 	}
 
-	 }	
+	 }
 	 public static void printArrays(int[]a, int[] b, int[] c){
 	 	System.out.println(Arrays.toString(a));
 		System.out.println(Arrays.toString(b));
