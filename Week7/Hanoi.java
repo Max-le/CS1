@@ -27,11 +27,13 @@ public class Hanoi{
 
 			int count = size_tower-1;
 			boolean diskmoved = false; 
+
+
 		while (diskmoved == false) { 
-			if (stack_goal[count] == 0) {
+			if (stack_goal[count] == 0 ) {
 
 				//move disk
-				stack_goal[size_tower-1] = stack_origin[disk-1];
+				stack_goal[count] = stack_origin[disk-1];
 
 				stack_origin[disk-1]=0;
 				System.out.println("Disk moved ! ");
@@ -40,7 +42,7 @@ public class Hanoi{
 			}
 			else{
 				count--;
-				System.out.println("testing position "+ count);
+				System.out.println("tested position "+ count);
 			}
 		}
 
@@ -67,7 +69,19 @@ public class Hanoi{
 		System.out.println(Arrays.toString(stackB));
 		System.out.println(Arrays.toString(stackC));
 		moveTower(size_tower,"A","C","B");
-		moveDisk(1, stackA, stackB);
+
+
+
+		//testing
+		for (int i = 1; i<size_tower; i++){
+
+			moveDisk(i, stackA, stackB);
+		}
+
+
+		System.out.println(Arrays.toString(stackA));
+		System.out.println(Arrays.toString(stackB));
+		System.out.println(Arrays.toString(stackC));
 
 
 
